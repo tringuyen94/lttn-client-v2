@@ -1,0 +1,23 @@
+.wrapper {
+   display: flex;
+   justify-content: space-between;
+   gap: 2rem;
+   flex-direction: column;
+   margin: 0 1rem;
+   margin-bottom: 2rem;
+}
+
+
+.map {
+   flex: 1;
+}
+
+.video {
+   flex: 1;
+}
+
+@media only screen and (min-width:768px) {
+   .wrapper {
+      flex-direction: row;
+   }
+}

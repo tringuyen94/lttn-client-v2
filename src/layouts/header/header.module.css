@@ -1,0 +1,205 @@
+.navigation {
+   background: #1e1f29;
+   padding: 1rem 0;
+   border-top: 2px solid #d10024;
+   border-bottom: 3px solid #d10024;
+   position: relative;
+   display: flex;
+   align-items: center;
+}
+
+.burger {
+   cursor: pointer;
+   width: 35px;
+   margin-left: 1rem;
+   height: 35px;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.burger span {
+   width: 26px;
+   height: 3px;
+   transition: all ease .25s;
+   background-color: #fff;
+   border-radius: 4;
+   margin-top: 4px;
+}
+
+.burger.active span:nth-child(1) {
+   transform: rotate(45deg);
+   position: relative;
+   top: 10px;
+}
+
+.burger.active span:nth-child(2) {
+   opacity: 0;
+   /* Hide the middle line */
+}
+
+.burger.active span:nth-child(3) {
+   transform: rotate(-45deg);
+   position: relative;
+   bottom: 4px;
+}
+
+.navLinks {
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   justify-content: space-between;
+   background-color: #50505d;
+   position: absolute;
+   top: 7rem;
+   left: -12rem;
+   width: 175px;
+   padding: 1rem;
+   z-index: 30;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   transition: all ease .25s;
+}
+
+.navLinks li {
+   margin: .5rem;
+}
+
+.navLinks li a {
+   color: white;
+   transition: all ease .25s;
+
+}
+
+.linkActived {
+   color: #d10024 !important;
+   font-weight: bold;
+}
+
+.navLinks li a:hover {
+   color: #d10024;
+}
+
+
+
+.navLinks.active {
+   transform: translateX(13rem);
+}
+
+
+
+.logoWrapper {
+   width: 60px;
+   height: 50px;
+   margin-left: 8rem;
+}
+
+.logo {
+   border-radius: 50%;
+   width: 100%;
+   height: 100%;
+   outline: none;
+   transition: all ease .25s;
+   filter: drop-shadow(0 0 0.5rem #fff);
+   animation: zoomOut 2s ease
+}
+
+@keyframes zoomOut {
+   0% {
+      scale: 150%;
+   }
+}
+
+
+@media only screen and (min-width: 768px) {
+   .navigation {
+      justify-content: space-around;
+      padding: 2rem 0;
+      border-top: 3px solid #d10024;
+      /* ff 3.6+ */
+      background: -moz-linear-gradient(90deg, rgba(40, 44, 52, 1) 50%, rgba(209, 0, 36, 1) 100%, rgba(40, 44, 52, 1) 100%);
+
+      /* safari 5.1+,chrome 10+ */
+      background: -webkit-linear-gradient(90deg,
+            rgba(40, 44, 52, 1) 50%,
+            rgba(209, 0, 36, 1) 100%,
+            rgba(40, 44, 52, 1) 100%);
+
+      /* opera 11.10+ */
+      background: -o-linear-gradient(90deg, rgba(40, 44, 52, 1) 50%, rgba(209, 0, 36, 1) 100%, rgba(40, 44, 52, 1) 100%);
+
+      /* ie 10+ */
+      background: -ms-linear-gradient(90deg, rgba(40, 44, 52, 1) 50%, rgba(209, 0, 36, 1) 100%, rgba(40, 44, 52, 1) 100%);
+
+      /* global 94%+ browsers support */
+      background: linear-gradient(90deg, rgba(40, 44, 52, 1) 50%, rgba(209, 0, 36, 1) 100%, rgba(40, 44, 52, 1) 100%);
+   }
+
+   .burger {
+      display: none;
+   }
+
+   .logoWrapper {
+      width: 120px;
+      height: 100px;
+   }
+
+   .navLinks {
+      position: static;
+      width: 100%;
+      border-radius: 0;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: #1e1f29;
+   }
+
+
+
+
+
+}
+
+/* .mainNav {
+   display: flex;
+   padding: 15px;
+}
+
+.mainNav>li+li {
+   margin-left: 50px;
+}
+
+.mainNav>li>a {
+   padding: 20px 0px;
+   color: #fff;
+}
+
+.mainNav li a:hover,
+.mainNav li.active a {
+   color: #d10024;
+}
+
+.headerCtn li.nav-toggle {
+   display: none;
+} */
+
+/* .dropdownMenu {
+   padding: 0;
+}
+
+.dropdown-toggle::after {
+   color: #d10024;
+}
+
+.dropdown-item {
+   background: #1e1f29;
+   height: 100%;
+   color: #fff;
+}
+
+.dropdown-item:hover {
+   background: #1e1f29;
+   color: #d10024; */

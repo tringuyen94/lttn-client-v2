@@ -1,0 +1,9 @@
+.bottomFooter {
+   background: #1e1f29;
+   text-align: center;
+   padding: 1rem;
+}
+
+.bottomFooter p {
+   color: rgb(62, 60, 60);
+}

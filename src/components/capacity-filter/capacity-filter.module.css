@@ -1,0 +1,104 @@
+/* Container for the slider */
+.sliderContainer {
+   width: 80%;
+   position: relative;
+   margin: 3rem auto;
+}
+
+/* Label styling */
+.sliderLabel {
+   font-size: 16px;
+   margin-bottom: 1rem;
+   display: block;
+   color: #333;
+}
+
+/* Range slider track container */
+.rangeSlider {
+   position: relative;
+   min-height: 50px;
+}
+
+/* General slider track */
+.slider {
+   -webkit-appearance: none;
+   appearance: none;
+   height: 2px;
+   width: 100%;
+   position: absolute;
+   background-color: #C6C6C6;
+   pointer-events: none;
+}
+
+.minSlider {
+   height: 0;
+   z-index: 1;
+}
+
+/* Slider handles */
+.slider::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: #d10024;
+   /* Custom theme color */
+   cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: #d10024;
+   /* Custom theme color */
+   cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   pointer-events: all;
+   width: 24px;
+   height: 24px;
+   background-color: #fff;
+   border-radius: 50%;
+   box-shadow: 0 0 0 1px #C6C6C6;
+   cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+   -webkit-appearance: none;
+   pointer-events: all;
+   width: 24px;
+   height: 24px;
+   background-color: #fff;
+   border-radius: 50%;
+   box-shadow: 0 0 0 1px #C6C6C6;
+   cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover {
+   background: #f7f7f7;
+}
+
+.slider::-webkit-slider-thumb:active {
+   box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+   -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+}
+
+
+
+/* Tooltip styling */
+.tooltip {
+   position: absolute;
+   top: 20px;
+   background-color: #d10024;
+   /* Custom theme color */
+   color: #fff;
+   padding: 5px;
+   border-radius: 3px;
+   font-size: 12px;
+   white-space: nowrap;
+   transform: translateX(-50%);
+}
