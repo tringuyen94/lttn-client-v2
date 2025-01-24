@@ -1,0 +1,30 @@
+.projectDetailWrapper {
+   padding: 2rem 0;
+   text-align: center;
+}
+
+.projectHeader {
+   margin: 1.5rem 1rem;
+}
+
+.projectHeader p {
+   margin-bottom: 1rem;
+}
+
+.projectThumbnail {
+   width: 100%;
+   height: 250px;
+   position: relative;
+}
+
+.projectBody {
+   text-align: center;
+   padding: 0 1rem;
+}
+
+@media only screen and (min-width:768px) {
+   .projectDetailWrapper {
+      max-width: 768px;
+      margin: 0 auto;
+   }
+}

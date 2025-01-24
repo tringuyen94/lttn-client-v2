@@ -1,0 +1,28 @@
+/* styles/Contact.module.css */
+
+.contactContainer {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+
+
+.statusMessage {
+   margin-top: 10px;
+   font-size: 0.9rem;
+   color: #555;
+}
+
+.contactInfo {
+   margin-top: 30px;
+   font-size: 1rem;
+}
+
+.contactInfo h3 {
+   margin-bottom: .5rem;
+}
+
+.contactInfo p {
+   margin-bottom: .3rem;
+}

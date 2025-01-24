@@ -1,0 +1,8 @@
+.btnReset {
+   width: 150px;
+   height: 40px;
+   margin: 0 auto;
+   display: block;
+   font-size: 1.2rem;
+   cursor: pointer;
+}

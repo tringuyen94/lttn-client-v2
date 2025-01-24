@@ -1,0 +1,15 @@
+.projectList {
+   margin-top: 1rem;
+   padding: 0 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+
+}
+
+@media only screen and (min-width:768px) {
+   .projectList {
+      flex-direction: row;
+      justify-content: space-evenly;
+   }
+}
