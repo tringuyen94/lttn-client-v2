@@ -36,9 +36,32 @@
    margin-bottom: 1rem;
 }
 
+.similarProducts {
+   border: 2px solid #ccc;
+   padding: 1rem;
+   padding-bottom: .5rem;
+   margin-top: 1rem;
+
+}
+
+.similarProducts ul {
+   display: flex;
+   flex-direction: column;
+   margin: 1rem;
+}
+
+.similarProducts ul li {
+   min-width: 250px;
+   margin-right: 1rem;
+}
+
 @media only screen and (min-width:768px) {
    .productDetail {
       justify-content: space-evenly;
       align-items: center;
+   }
+
+   .similarProducts ul {
+      flex-direction: row;
    }
 }
