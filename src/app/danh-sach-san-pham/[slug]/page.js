@@ -1,9 +1,11 @@
 import React from 'react';
 import PhotoGallery from '@/components/gallery/gallery';
+import ProductItem from '@/components/product/product-item';
 import { fetchProductBySlug } from '@/services/products.services';
 import styles from './page.module.css';
+
 export default async function ProductDetailPage({ params }) {
-  const product = await fetchProductBySlug(params.slug);
+  const { product, similarProducts } = await fetchProductBySlug(params.slug);
 
   return (
     <div className={styles.productDetail}>
@@ -34,6 +36,16 @@ export default async function ProductDetailPage({ params }) {
             }}
           ></div>
         </div>
+      </div>
+      <div className={styles.similarProducts}>
+        <h3>Sản phẩm tương tự:</h3>
+        <ul>
+          {similarProducts.map((similarProduct) => (
+            <li key={similarProduct._id}>
+              <ProductItem product={similarProduct} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
