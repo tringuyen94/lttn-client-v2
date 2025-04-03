@@ -1,0 +1,19 @@
+.categoryList {
+   padding: .75rem;
+   columns: 2;
+   background: rgb(230, 224, 224);
+   justify-content: center;
+   align-items: center;
+}
+
+.categoryItemWrapper {
+   margin-bottom: 1.25rem;
+}
+
+@media only screen and (min-width:768px) {
+   .categoryList {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1rem;
+   }
+}
