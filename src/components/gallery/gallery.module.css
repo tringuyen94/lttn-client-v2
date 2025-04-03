@@ -6,8 +6,8 @@
 
 .photoWrapper {
    cursor: pointer;
-   width: 200px;
-   height: 200px;
+   width: 100px;
+   height: 100px;
    position: relative;
 }
 
@@ -23,6 +23,11 @@
    .gallery {
       display: grid;
       grid-template-columns: auto auto;
+   }
+
+   .photoWrapper {
+      width: 250px;
+      height: 250px;
    }
 
 
