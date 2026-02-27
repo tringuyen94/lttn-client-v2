@@ -1,11 +1,15 @@
 const { restConnector } = require('./baseURL.services');
 
 export async function fetchCategories() {
-  const response = await restConnector({
-    method: 'GET',
-    url: 'api/v1/categories',
-  });
-  const categories = await response.data.metadata;
-
-  return categories;
+  try {
+    const response = await restConnector({
+      method: 'GET',
+      url: 'api/v1/categories',
+    });
+    return response.data.metadata;
+  } catch (error) {
+    const message =
+      error.response?.data?.message || 'Không thể tải danh mục sản phẩm';
+    throw new Error(message);
+  }
 }

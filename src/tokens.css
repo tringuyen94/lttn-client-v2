@@ -1,0 +1,97 @@
+/*
+ * LTTN Design Tokens
+ *
+ * Single source of truth for colors, typography, spacing, radii,
+ * shadows, and transitions used across the client application.
+ *
+ * Usage: var(--color-primary)
+ */
+
+:root {
+  /* ─── Brand Colors ─────────────────────────────────── */
+  --color-primary: #d10024;
+  --color-primary-hover: #b8001f;
+  --color-primary-light: #ef233c;
+  --color-primary-lightest: rgba(209, 0, 36, 0.15);
+  --color-primary-border: rgba(209, 0, 36, 0.4);
+  --color-primary-accent: #ff6b81;
+
+  /* ─── Dark Palette ─────────────────────────────────── */
+  --color-dark: #1e1f29;
+  --color-dark-deep: #15161d;
+  --color-dark-alt: #282c34;
+  --color-dark-muted: #50505d;
+
+  /* ─── Neutral / Grey ───────────────────────────────── */
+  --color-grey-100: #fbfbfc;
+  --color-grey-200: #f7f7f7;
+  --color-grey-300: #e4e7ed;
+  --color-grey-500: #b9babc;
+  --color-grey-600: #8d99ae;
+  --color-grey-700: #555;
+  --color-grey-800: #333;
+
+  /* ─── Foreground / Background ──────────────────────── */
+  --color-bg: #ffffff;
+  --color-fg: #171717;
+  --color-heading: #2b2d42;
+  --color-white: #fff;
+
+  /* ─── Typography ───────────────────────────────────── */
+  --font-family: 'Montserrat', sans-serif;
+
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.875rem;  /* 14px */
+  --text-base: 1rem;    /* 16px */
+  --text-md: 1.125rem;  /* 18px */
+  --text-lg: 1.25rem;   /* 20px */
+  --text-xl: 1.5rem;    /* 24px */
+  --text-2xl: 2.25rem;  /* 36px */
+  --text-3xl: 3rem;     /* 48px */
+
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-black: 900;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* ─── Spacing (4px base) ───────────────────────────── */
+  --space-1: 0.25rem;   /* 4px  */
+  --space-2: 0.5rem;    /* 8px  */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+
+  /* ─── Border Radius ────────────────────────────────── */
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 20px;
+  --radius-pill: 40px;
+  --radius-full: 50%;
+
+  /* ─── Shadows ──────────────────────────────────────── */
+  --shadow-sm: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
+  --shadow-heavy: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  /* ─── Transitions ──────────────────────────────────── */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.3s ease;
+
+  /* ─── Layout ───────────────────────────────────────── */
+  --max-width: 1200px;
+  --input-height: 40px;
+}

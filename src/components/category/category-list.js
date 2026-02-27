@@ -6,16 +6,23 @@ import { fetchCategories } from '@/services/categories.services';
 export default async function CategoryList() {
   const categories = await fetchCategories();
   return (
-    <div className={styles.categoryList}>
-      {categories
-        ? categories.map((item) => {
-            return (
-              <div className={styles.categoryItemWrapper} key={item._id}>
-                <CategoryItem category={item} />
-              </div>
-            );
-          })
-        : null}
-    </div>
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <div className={styles.headerBlock}>
+          <span className={styles.accent} />
+          <h2 className={styles.heading}>Danh mục sản phẩm</h2>
+          <p className={styles.description}>
+            Khám phá các dòng sản phẩm điện công nghiệp chính hãng
+          </p>
+        </div>
+        <div className={styles.grid}>
+          {categories
+            ? categories.map((item) => (
+                <CategoryItem key={item._id} category={item} />
+              ))
+            : null}
+        </div>
+      </div>
+    </section>
   );
 }

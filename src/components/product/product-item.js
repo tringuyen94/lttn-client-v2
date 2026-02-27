@@ -1,34 +1,35 @@
 import React from 'react';
+import Link from 'next/link';
+import ProductImage from './product-image';
 import styles from './product-item.module.css';
 
-import Image from 'next/image';
-import { baseURL } from '@/services/baseURL.services';
-import Link from 'next/link';
-
-export default function ProductItem({ product }) {
-  const { product_name, product_slug, product_images } = product;
+export default function ProductItem({ product, priority = false }) {
+  const { product_name, product_slug, product_images, product_isnew, brand, category } = product;
 
   return (
-    <div className={styles.product}>
-      <div className={styles.productImg}>
-        <Image
-          alt={product_slug}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          src={`${baseURL}/${product_images[0]}`}
-          fill
-        />
-      </div>
-      <div className={styles.productBody}>
-        <h5 className={styles.productName}>{product_name}</h5>
-      </div>
-      <div className={styles.viewDetail}>
-        <Link
-          href={`/danh-sach-san-pham/${product_slug}`}
-          className={styles.viewDetailBtn}
-        >
-          Chi tiết
-        </Link>
-      </div>
-    </div>
+    <article className={styles.card} aria-label={product_name}>
+      <Link href={`/danh-sach-san-pham/${product_slug}`} className={styles.cardLink}>
+        <div className={styles.imageWrapper}>
+          <ProductImage
+            imagePath={product_images[0]}
+            alt={`Hình ảnh sản phẩm ${product_name}`}
+            sizes="(max-width: 480px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+            priority={priority}
+          />
+          {product_isnew !== undefined && (
+            <span className={`${styles.badge} ${product_isnew ? styles.badgeNew : styles.badgeUsed}`}>
+              {product_isnew ? 'Mới' : 'Cũ'}
+            </span>
+          )}
+        </div>
+        <div className={styles.body}>
+          <h5 className={styles.name}>{product_name}</h5>
+          <div className={styles.meta}>
+            {brand?.brand_name && <span className={styles.metaItem}>{brand.brand_name}</span>}
+            {category?.category_name && <span className={styles.metaItem}>{category.category_name}</span>}
+          </div>
+        </div>
+      </Link>
+    </article>
   );
 }

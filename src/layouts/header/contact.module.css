@@ -2,7 +2,7 @@
    /**/
    width: 100%;
    padding: 10px 0;
-   background-color: #1e1f29;
+   background-color: var(--color-dark);
    text-align: center;
 }
 
@@ -37,24 +37,29 @@
 }
 
 .contactLinks li img {
-   background-color: #d10024;
+   background-color: var(--color-primary);
    width: 20px;
    margin-right: 5px;
 }
 
 .contactLinks li a:hover {
-   color: #d10024;
+   color: var(--color-primary);
 }
 
 .contactLinks li i {
-   color: #d10024;
+   color: var(--color-primary);
    margin-right: 5px;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 480px) {
+   .contactLinks li {
+      font-size: 14px;
+   }
+}
+
+@media only screen and (min-width: 768px) {
    .contact {
       padding: .5rem 0;
-
    }
 
    .contactLinks {
@@ -62,11 +67,21 @@
    }
 
    .contactLinks li {
+      margin-right: 1.5rem;
+   }
+
+   .contactLinks li a {
+      font-size: 0.9rem;
+      font-weight: 560;
+   }
+}
+
+@media only screen and (min-width: 1024px) {
+   .contactLinks li {
       margin-right: 2rem;
    }
 
    .contactLinks li a {
       font-size: 1rem;
-      font-weight: 560;
    }
 }

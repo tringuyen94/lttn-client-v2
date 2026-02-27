@@ -1,9 +1,11 @@
 .bottomFooter {
-   background: #1e1f29;
+   background: var(--color-dark);
    text-align: center;
    padding: 1rem;
+   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .bottomFooter p {
-   color: rgb(62, 60, 60);
+   color: var(--color-grey-500);
+   font-size: var(--text-sm);
 }

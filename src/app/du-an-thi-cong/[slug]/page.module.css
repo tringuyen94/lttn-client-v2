@@ -1,30 +1,233 @@
-.projectDetailWrapper {
-   padding: 2rem 0;
-   text-align: center;
+.wrapper {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
 }
 
-.projectHeader {
-   margin: 1.5rem 1rem;
+/* ─── Header ─────────────────────────────────── */
+.header {
+  margin-bottom: var(--space-6);
 }
 
-.projectHeader p {
-   margin-bottom: 1rem;
+.date {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-grey-600);
+  margin-bottom: var(--space-2);
 }
 
-.projectThumbnail {
-   width: 100%;
-   height: 250px;
-   position: relative;
+.title {
+  font-size: 1.5rem;
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+  line-height: var(--leading-tight);
 }
 
-.projectBody {
-   text-align: center;
-   padding: 0 1rem;
+/* ─── Hero Image ─────────────────────────────── */
+.heroImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+  background: var(--color-grey-100);
 }
 
-@media only screen and (min-width:768px) {
-   .projectDetailWrapper {
-      max-width: 768px;
-      margin: 0 auto;
-   }
+.heroImage > img {
+  object-fit: cover;
+}
+
+/* ─── Content (article typography) ───────────── */
+.content {
+  line-height: var(--leading-relaxed);
+  color: var(--color-fg);
+  font-size: var(--text-base);
+  word-break: break-word;
+}
+
+.content > p {
+  margin-bottom: var(--space-4);
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+}
+
+.content h2,
+.content h3,
+.content h4 {
+  color: var(--color-heading);
+  font-weight: var(--font-bold);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.content h2 {
+  font-size: var(--text-lg);
+}
+
+.content h3 {
+  font-size: var(--text-md);
+}
+
+.content ul,
+.content ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.content li {
+  margin-bottom: var(--space-2);
+}
+
+.content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.content a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ─── CTA Section ────────────────────────────── */
+.cta {
+  margin-top: var(--space-10);
+  padding: var(--space-6);
+  background: var(--color-grey-100);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--color-grey-300);
+}
+
+.ctaHeading {
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+  margin-bottom: var(--space-2);
+}
+
+.ctaDescription {
+  font-size: var(--text-sm);
+  color: var(--color-grey-600);
+  margin-bottom: var(--space-5);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.ctaPhone,
+.ctaZalo,
+.ctaContact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.ctaPhone {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.ctaPhone:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.ctaZalo {
+  background: #0068ff;
+  color: var(--color-white);
+}
+
+.ctaZalo:hover {
+  background: #0055d4;
+  transform: translateY(-1px);
+}
+
+.ctaContact {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.ctaContact:hover {
+  background: var(--color-dark-alt);
+  transform: translateY(-1px);
+}
+
+/* ─── Related Projects ───────────────────────── */
+.related {
+  margin-top: var(--space-10);
+}
+
+.relatedHeading {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+  margin-bottom: var(--space-5);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+/* ─── Back Link ──────────────────────────────── */
+.backLink {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-grey-300);
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.backButton:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media only screen and (min-width: 480px) {
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    max-width: 900px;
+  }
 }

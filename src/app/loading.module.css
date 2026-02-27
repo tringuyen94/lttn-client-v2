@@ -12,7 +12,7 @@
    width: 40px;
    height: 40px;
    border-radius: 50%;
-   border-left-color: #d10024;
+   border-left-color: var(--color-primary);
    /* Custom theme color */
    animation: spin 1s ease infinite;
 }

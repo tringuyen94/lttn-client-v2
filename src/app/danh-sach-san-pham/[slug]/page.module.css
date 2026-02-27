@@ -1,67 +1,275 @@
-.productDetail {
-   padding: 1rem;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
+/* ─── Page container ──────────────────────────────── */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
 }
 
-.productInfo {}
-
-.productInfo h2 {
-   margin: 1rem;
-   text-align: center;
+/* ─── Top section: Gallery + Info ─────────────────── */
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
-.productInfo ul {
-   display: flex;
-   justify-content: space-around;
-   margin-bottom: 1rem;
+.galleryCol {
+  flex-shrink: 0;
 }
 
-.productInfo ul li {
-   font-weight: bold;
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-
-.productInfo ul li span {
-   color: blue;
+/* ─── Product name & brand ────────────────────────── */
+.productName {
+  font-size: var(--text-xl);
+  font-weight: var(--font-black);
+  line-height: var(--leading-tight);
+  color: var(--color-heading);
 }
 
-.detailWrapper {
-   border: 2px solid brown;
-   padding: 1rem;
+.brand {
+  font-size: var(--text-sm);
+  color: var(--color-grey-700);
 }
 
-.detailWrapper h3 {
-   margin-bottom: 1rem;
+.brand strong {
+  color: var(--color-heading);
 }
 
-.similarProducts {
-   border: 2px solid #ccc;
-   padding: 1rem;
-   padding-bottom: .5rem;
-   margin-top: 1rem;
-
+/* ─── Specs ───────────────────────────────────────── */
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-grey-100);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-grey-300);
 }
 
-.similarProducts ul {
-   display: flex;
-   flex-direction: column;
-   margin: 1rem;
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
 }
 
-.similarProducts ul li {
-   min-width: 250px;
-   margin-right: 1rem;
+.specIcon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: var(--radius-md);
+  background: var(--color-grey-200);
+  color: var(--color-grey-700);
 }
 
-@media only screen and (min-width:768px) {
-   .productDetail {
-      justify-content: space-evenly;
-      align-items: center;
-   }
+.specIconNew {
+  composes: specIcon;
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+}
 
-   .similarProducts ul {
-      flex-direction: row;
-   }
+.specLabel {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-grey-600);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.specValue {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+}
+
+.statusNew {
+  color: #16a34a;
+}
+
+.statusUsed {
+  color: var(--color-grey-700);
+}
+
+/* ─── CTA ─────────────────────────────────────────── */
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-dark);
+  border-radius: var(--radius-lg);
+}
+
+.ctaLabel {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: var(--font-bold);
+}
+
+.ctaActions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.ctaPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.ctaPhone:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.ctaZalo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: #0068ff;
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.ctaZalo:hover {
+  background: #0055d4;
+  transform: translateY(-1px);
+}
+
+.ctaContact {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--transition-fast);
+}
+
+.ctaContact:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ─── Description section ─────────────────────────── */
+.sectionTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary);
+  display: inline-block;
+}
+
+.descriptionSection {
+  padding: var(--space-6);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-grey-300);
+}
+
+.descriptionContent {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-grey-800);
+}
+
+.descriptionContent p {
+  margin-bottom: var(--space-3);
+}
+
+.descriptionContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+}
+
+.descriptionContent ul,
+.descriptionContent ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.descriptionContent li {
+  list-style: disc;
+  margin-bottom: var(--space-1);
+}
+
+/* ─── Similar products ────────────────────────────── */
+.similarSection {
+  padding-top: var(--space-4);
+}
+
+.similarGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media only screen and (min-width: 480px) {
+  .page {
+    padding: var(--space-6);
+  }
+
+  .productName {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .page {
+    padding: var(--space-8);
+  }
+
+  .topSection {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-8);
+  }
+
+  .galleryCol {
+    flex: 1;
+    max-width: 420px;
+    position: sticky;
+    top: 80px;
+  }
+
+  .infoCol {
+    flex: 1;
+  }
+
+  .productName {
+    font-size: var(--text-2xl);
+  }
+
+  .similarGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .galleryCol {
+    max-width: 480px;
+  }
+
+  .similarGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

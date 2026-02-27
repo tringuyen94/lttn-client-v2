@@ -5,9 +5,9 @@ import TopFooter from './top-footer';
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer} aria-label="Thông tin công ty">
       <TopFooter />
       <BottomFooter />
-    </div>
+    </footer>
   );
 }

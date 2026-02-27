@@ -1,79 +1,59 @@
 .search {
-   margin: 10px auto;
-   text-align: center;
-   margin-bottom: 2rem;
-   width: 100%;
+  width: 100%;
+  margin-bottom: var(--space-3);
 }
 
 .search form {
-   position: relative;
-   margin-top: 0.6rem;
+  position: relative;
 }
 
 .search form input {
-   border-radius: 20px;
-   padding: 5px 0px 5px 15px;
-   width: 90%;
-   height: 3rem;
-   transition: all 0.25s linear;
-   outline: none;
-   font-size: 1rem
+  width: 100%;
+  height: var(--input-height);
+  padding: var(--space-2) var(--space-10) var(--space-2) var(--space-4);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  color: var(--color-fg);
+  background: var(--color-white);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.search form input:focus+.searchIcon {
-   transform: scale(1.1);
-   color: #d10024;
+.search form input::placeholder {
+  color: var(--color-grey-500);
 }
 
-
-
-
+.search form input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-lightest);
+}
 
 .searchIcon {
-   position: absolute;
-   font-size: 25px;
-   top: 0.7rem;
-   right: 2rem;
-   color: #9d9d9d;
-   transition: all ease .25s;
+  position: absolute;
+  top: 50%;
+  right: var(--space-4);
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--color-grey-500);
+  transition: color var(--transition-fast);
+  pointer-events: none;
 }
 
-
-.result__searching {
-   position: absolute;
-   padding: 0 2rem;
-   z-index: 99;
-   background: #15161d;
-   border-radius: 10px;
+.search form input:focus + .searchIcon {
+  color: var(--color-primary);
 }
 
-.result__searching-item {
-   display: flex;
-   align-items: center;
-   padding: 1rem;
-   margin: 1rem 0;
-   border: 2px solid #9d9d9d;
-   cursor: pointer;
-}
+@media only screen and (min-width: 768px) {
+  .search {
+    flex: 1;
+    min-width: 200px;
+    max-width: 360px;
+    margin-bottom: 0;
+  }
 
-.result__searching-item:hover {
-   border: 2px solid #d10024;
+  .search form input {
+    height: 42px;
+    font-size: var(--text-base);
+  }
 }
-
-.result__searching-item p {
-   color: #eee;
-   margin-left: 2rem;
-   margin-top: 1rem;
-}
-
-.result__searching-item img {
-   width: 50px;
-   height: 50px;
-   border-radius: 10px;
-}
-
-/* @media only screen and (min-width:768px) {
-   .search form input {
-      font-size: 1rem;
-   }
-} */

@@ -1,39 +1,45 @@
-/* NotFound.module.css */
 .notFoundContainer {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 2rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 3.5rem;
+  color: var(--color-primary-light);
 }
 
 .title {
-   font-size: 2rem;
-   /* Adjust font size */
-   color: #d10024;
-   /* Custom theme color */
+  font-size: 1.5rem;
+  color: var(--color-heading);
 }
 
 .message {
-   margin: 20px 0;
-   font-size: 1.2rem;
-   /* Adjust font size */
-   color: #555;
-   /* Color for the message */
+  color: var(--color-grey-700);
+  max-width: 500px;
+  line-height: 1.6;
 }
 
 .homeLink {
-   text-decoration: none;
-   color: #fff;
-   background-color: #d10024;
-   /* Custom theme color */
-   padding: 10px 20px;
-   border-radius: 5px;
-   transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 40px;
+  background-color: var(--color-primary-light);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .homeLink:hover {
-   background-color: #b1001c;
-   /* Darker shade on hover */
+  background-color: var(--color-primary);
 }

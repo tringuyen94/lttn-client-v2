@@ -22,24 +22,75 @@
    gap: 1rem;
 }
 
-
 .topFooterLinks li a {
+   color: var(--color-grey-300);
    text-decoration: none;
+   transition: color var(--transition-fast);
 }
 
-.topFooterLinks li a {
-   color: #d10024;
+.topFooterLinks li a:hover,
+.topFooterLinks li a:focus-visible {
+   color: #fff;
 }
 
-@media only screen and (min-width:768px) {
+/* ─── Quick Links ──────────────────────────────────── */
+
+.quickLinks li {
+   margin-top: 12px;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+}
+
+.quickLinkIcon {
+   color: var(--color-primary);
+   font-size: 0.6rem;
+   flex-shrink: 0;
+}
+
+.quickLinks li a {
+   color: var(--color-grey-300);
+   text-decoration: none;
+   transition: color var(--transition-fast);
+}
+
+.quickLinks li a:hover,
+.quickLinks li a:focus-visible {
+   color: #fff;
+}
+
+/* ─── Responsive ───────────────────────────────────── */
+
+@media only screen and (min-width: 480px) {
    .topFooterWrapper {
       flex-direction: row;
       flex-wrap: wrap;
+   }
+
+   .topFooter {
+      width: 50%;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .topFooterWrapper {
       justify-content: space-around;
+   }
+
+   .topFooter {
+      width: auto;
    }
 
    .first {
       order: -1;
    }
+}
 
+@media only screen and (min-width: 1024px) {
+   .topFooterWrapper {
+      flex-wrap: nowrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+   }
 }

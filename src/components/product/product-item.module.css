@@ -1,70 +1,117 @@
-.product {
-   position: relative;
-   height: fit-content;
-   margin-bottom: .7rem;
-   -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
-   box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
-   transition: 0.2s ease all;
+.card {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
 }
 
-.product:hover {
-   /* cursor: pointer; */
-   transform: scale(1.1);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
 }
 
-
-.productImg {
-   position: relative;
-   width: 100%;
-   height: 200px;
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
-.productImg>img {
-   border-radius: 5px;
-   transition: all ease .25s;
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--color-grey-100);
+  overflow: hidden;
 }
 
-
-.productBody {
-   background-color: #fff;
-   text-align: center;
-   margin: 10px;
+.imageWrapper > img {
+  object-fit: cover;
+  transition: transform var(--transition-normal);
 }
 
-.productName {
-   font-weight: 900;
+.card:hover .imageWrapper > img {
+  transform: scale(1.05);
 }
 
-.product .product-body .product-name:hover,
-.product .product-body .product-name:focus {
-   color: #d10024;
+.badge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  line-height: 1.4;
+  z-index: 1;
 }
 
-.viewDetail {
-   padding: 1.5rem;
-   margin-top: auto;
-   background: #1e1f29;
-   text-align: center;
-   -webkit-transition: 0.2s all;
-   transition: 0.2s all;
-   border-radius: 5px;
+.badgeNew {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
 }
 
-.viewDetailBtn {
-   border: none;
-   height: 40px;
-   padding: .5rem 30px;
-   background-color: #ef233c;
-   color: #fff;
-   font-weight: 700;
-   border-radius: 40px;
-   -webkit-transition: 0.2s all;
-   transition: 0.2s all;
+.badgeUsed {
+  background: var(--color-grey-200);
+  color: var(--color-grey-700);
 }
 
-.viewDetailBtn:hover {
-   cursor: pointer;
-   background-color: #fff;
-   color: #d10024;
-   border-color: #d10024;
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  flex: 1;
+}
+
+.name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+  line-height: var(--leading-tight);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  margin-top: auto;
+}
+
+.metaItem {
+  font-size: var(--text-xs);
+  color: var(--color-grey-600);
+  line-height: 1;
+}
+
+.metaItem + .metaItem::before {
+  content: '·';
+  margin-right: var(--space-2);
+  color: var(--color-grey-500);
+}
+
+@media only screen and (min-width: 480px) {
+  .name {
+    font-size: var(--text-sm);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .body {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .name {
+    font-size: var(--text-base);
+  }
 }

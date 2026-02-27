@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Contact from './contact';
 import styles from './header.module.css';
@@ -27,44 +27,100 @@ const _NAV_LINKS = [
     text: 'Liên hệ',
   },
 ];
+
 export default function Header() {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const pathname = usePathname();
 
+  const closeMobileMenu = useCallback(() => setBurgerOpen(false), []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && burgerOpen) {
+        closeMobileMenu();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [burgerOpen, closeMobileMenu]);
+
+  useEffect(() => {
+    closeMobileMenu();
+  }, [pathname, closeMobileMenu]);
+
+  const toggleMenu = () => setBurgerOpen((prev) => !prev);
+
+  const handleBurgerKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
+  };
+
   return (
-    <Fragment>
-      <Contact />
-      <nav className={styles.navigation}>
-        <div
-          className={clsx(styles.burger, { [styles.active]: burgerOpen })}
-          onClick={() => setBurgerOpen(!burgerOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className={styles.logoWrapper}>
-          <Link href="/">
-            <Image src={logo} alt="logo" className={styles.logo} priority />
-          </Link>
-        </div>
+    <>
+      <a href="#main-content" className="skip-to-content">
+        Chuyển đến nội dung chính
+      </a>
+
+      <div className={styles.topBar}>
+        <Contact />
+      </div>
+
+      <div className={styles.bannerBar}>
         <Banner />
+      </div>
+
+      <nav className={styles.navbar} aria-label="Điều hướng chính">
+        <div className={styles.navInner}>
+          <Link href="/" className={styles.logoLink} aria-label="LTTN Electric - Trang chủ">
+            <Image
+              src={logo}
+              alt="LTTN Electric logo"
+              className={styles.logo}
+              priority
+            />
+          </Link>
+
+          <button
+            type="button"
+            className={clsx(styles.burger, { [styles.burgerActive]: burgerOpen })}
+            onClick={toggleMenu}
+            onKeyDown={handleBurgerKeyDown}
+            aria-label={burgerOpen ? 'Đóng menu' : 'Mở menu'}
+            aria-expanded={burgerOpen}
+            aria-controls="main-nav"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <ul
+            id="main-nav"
+            role="menubar"
+            className={clsx(styles.navLinks, { [styles.navLinksOpen]: burgerOpen })}
+            aria-label="Menu điều hướng"
+          >
+            {_NAV_LINKS.map((link) => {
+              const isActive = pathname === link.path;
+              return (
+                <li key={link.path} role="none">
+                  <Link
+                    href={link.path}
+                    role="menuitem"
+                    onClick={closeMobileMenu}
+                    className={clsx(styles.navLink, { [styles.navLinkActive]: isActive })}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </nav>
-      <ul className={clsx(styles.navLinks, { [styles.active]: burgerOpen })}>
-        {_NAV_LINKS.map((link) => {
-          return (
-            <li key={link.path}>
-              <Link
-                href={link.path}
-                onClick={() => setBurgerOpen(false)}
-                className={pathname === link.path ? styles.linkActived : null}
-              >
-                {link.text}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </Fragment>
+    </>
   );
 }

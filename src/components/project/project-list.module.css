@@ -1,16 +1,26 @@
 .projectList {
-   margin-top: 1rem;
-   padding: 0 10px;
-   display: flex;
-   flex-direction: column;
-   gap: 2rem;
-
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  width: 100%;
 }
 
-@media only screen and (min-width:768px) {
-   .projectList {
-      flex-direction: row;
-      justify-content: space-evenly;
-   }
+.emptyState {
+  margin-top: var(--space-8);
+  text-align: center;
+  color: var(--color-grey-600);
+}
 
+@media only screen and (min-width: 480px) {
+  .projectList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .projectList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
 }

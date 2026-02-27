@@ -1,6 +1,6 @@
 .footer {
    position: relative;
    bottom: 0;
-   background: #15161d;
-   color: #b9babc;
+   background: var(--color-dark-deep);
+   color: var(--color-grey-500);
 }

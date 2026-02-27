@@ -1,12 +1,9 @@
+@import url('../tokens.css');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
 }
 
 li {
@@ -15,7 +12,16 @@ li {
 
 a {
   text-decoration: none;
-  outline: none;
+  cursor: pointer;
+}
+
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+summary {
+  cursor: pointer;
 }
 
 h1,
@@ -24,15 +30,41 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2b2d42;
-  font-weight: 700;
+  color: var(--color-heading);
+  font-weight: var(--font-bold);
 }
 
-button:hover,
-button:focus {
-  outline: none;
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
-input:focus {
-  outline: none;
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+  font-size: var(--text-base);
+  border: none;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

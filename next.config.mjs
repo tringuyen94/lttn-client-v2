@@ -4,13 +4,15 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: '**',
+        hostname: 'localhost',
       },
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
+    dangerouslyAllowSVG: true,
+    unoptimized: process.env.NODE_ENV === 'development',
   },
 };
 

@@ -1,48 +1,44 @@
 .filterWrapper {
-   margin-bottom: 1rem;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.filterWrapper label {
+  white-space: nowrap;
+}
+
+.filterWrapper h4 {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-grey-700);
 }
 
 .filterWrapper select {
-   width: 140px;
-   position: relative;
-   height: 2.5rem;
-   border: 1px solid #ccc;
-   font-size: 1.2rem;
-   padding: 8px;
-   border-radius: 4px;
-   background-color: #f9f9f9;
-   /* appearance: none; */
+  height: 36px;
+  min-width: 120px;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-grey-800);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-/* .filterWrapper select::after {
-   content: '▼';
-   font-size: 12px;
-   position: absolute;
-   top: 50%;
-   right: 10px;
-   transform: translateY(-50%);
-   pointer-events: none;
-} */
+.filterWrapper select:hover {
+  border-color: var(--color-grey-500);
+}
+
+.filterWrapper select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-lightest);
+  outline: none;
+}
 
 .filterWrapper select option {
-   padding: 10px;
-   font-size: 2rem;
-   background-color: #fff;
-   color: #333;
-}
-
-
-
-.filterWrapper select:hover option {
-   background-color: #eee;
-}
-
-/* Additional styling for the dropdown when focused */
-.filterWrapper select:focus {
-   border-color: #d10024;
-   box-shadow: 0 0 5px rgba(220, 23, 85, 0.567);
+  padding: var(--space-2);
+  background-color: var(--color-white);
+  color: var(--color-grey-800);
 }

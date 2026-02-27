@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './dropdown-filter.module.css';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -8,15 +8,27 @@ export default function DropDownFilter({ info }) {
   const { nameFilter, title, optionsFilter } = info;
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [filter, setFilter] = useState('');
-  const handleChange = (value) => setFilter(value);
+
+  const selectId = `filter-${nameFilter}`;
+
+  const handleChange = (value) => {
+    const currentParams = new URLSearchParams(searchParams.toString());
+    if (value) {
+      currentParams.set(nameFilter, value);
+    } else {
+      currentParams.delete(nameFilter);
+    }
+    router.replace(`/danh-sach-san-pham/?${currentParams.toString()}`);
+  };
 
   const renderOptions = () => {
     switch (nameFilter) {
       case 'brand':
         return (
           <select
+            id={selectId}
             name={nameFilter}
+            aria-label={`Lọc theo ${title}`}
             onChange={(e) => handleChange(e.target.value)}
           >
             <option value="">Tất cả</option>
@@ -31,7 +43,9 @@ export default function DropDownFilter({ info }) {
       case 'category':
         return (
           <select
+            id={selectId}
             name={nameFilter}
+            aria-label={`Lọc theo ${title}`}
             onChange={(e) => handleChange(e.target.value)}
           >
             <option value="">Tất cả</option>
@@ -45,7 +59,9 @@ export default function DropDownFilter({ info }) {
       case 'isNew':
         return (
           <select
+            id={selectId}
             name={nameFilter}
+            aria-label={`Lọc theo ${title}`}
             onChange={(e) => handleChange(e.target.value)}
           >
             <option value="">Tất cả</option>
@@ -61,20 +77,9 @@ export default function DropDownFilter({ info }) {
     }
   };
 
-  useEffect(() => {
-    const currentParams = new URLSearchParams(searchParams.toString());
-    if (filter) {
-      currentParams.set(nameFilter, filter); // Only set 'isNew' if a value is selected
-    } else {
-      currentParams.delete(nameFilter); // If it's "All Products", remove the filter
-    }
-    // Push the updated URL with searchParams to the router
-    router.replace(`/danh-sach-san-pham/?${currentParams.toString()}`);
-  }, [filter, nameFilter, searchParams, router]);
-
   return (
     <div className={styles.filterWrapper}>
-      <h4>{title}</h4>
+      <label htmlFor={selectId}><h4>{title}</h4></label>
       {renderOptions()}
     </div>
   );

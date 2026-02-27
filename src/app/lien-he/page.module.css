@@ -1,28 +1,198 @@
-/* styles/Contact.module.css */
-
-.contactContainer {
-   max-width: 600px;
-   margin: 0 auto;
-   padding: 20px;
+/* ─── Page Wrapper ─────────────────────────────────── */
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
 }
 
-
-
-.statusMessage {
-   margin-top: 10px;
-   font-size: 0.9rem;
-   color: #555;
+/* ─── Hero / Header ────────────────────────────────── */
+.hero {
+  text-align: center;
+  margin-bottom: var(--space-10);
 }
 
-.contactInfo {
-   margin-top: 30px;
-   font-size: 1rem;
+.title {
+  font-size: var(--text-xl);
+  color: var(--color-heading);
+  margin-bottom: var(--space-2);
 }
 
-.contactInfo h3 {
-   margin-bottom: .5rem;
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-grey-700);
+  line-height: var(--leading-relaxed);
+  max-width: 540px;
+  margin: 0 auto;
 }
 
-.contactInfo p {
-   margin-bottom: .3rem;
+/* ─── 2-Column Grid ────────────────────────────────── */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* ─── Contact Cards ────────────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-lightest);
+  color: var(--color-primary);
+  font-size: var(--text-lg);
+}
+
+.cardBody {
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-heading);
+  margin-bottom: var(--space-1);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cardLines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardLines li {
+  font-size: var(--text-sm);
+  color: var(--color-grey-700);
+  line-height: var(--leading-normal);
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-grey-700);
+  transition: color var(--transition-fast);
+}
+
+.cardLink:hover {
+  color: var(--color-primary);
+}
+
+.lineIcon {
+  font-size: var(--text-base);
+}
+
+/* ─── Map Section ──────────────────────────────────── */
+.mapSection {
+  min-height: 0;
+}
+
+.mapCard {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mapTitle {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-grey-300);
+}
+
+.mapContainer {
+  flex: 1;
+  min-height: 350px;
+}
+
+.mapContainer iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Tablet (≥ 480px) ─────────────────────────────── */
+@media (min-width: 480px) {
+  .wrapper {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .title {
+    font-size: var(--text-xl);
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─── Small Desktop (≥ 768px) ──────────────────────── */
+@media (min-width: 768px) {
+  .wrapper {
+    padding: var(--space-10) var(--space-8);
+  }
+
+  .title {
+    font-size: var(--text-2xl);
+  }
+
+  .subtitle {
+    font-size: var(--text-base);
+  }
+}
+
+/* ─── Desktop (≥ 1024px): 2-Column Layout ──────────── */
+@media (min-width: 1024px) {
+  .grid {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .cards {
+    flex: 1;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: start;
+  }
+
+  .mapSection {
+    flex: 1;
+  }
+
+  .mapContainer {
+    min-height: 100%;
+  }
 }
